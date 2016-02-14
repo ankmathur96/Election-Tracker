@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+{% load staticfiles %}
+<title>Index</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<script src="/static/app/us-map/lib/raphael.js"> </script>
+<link rel="stylesheet" type="text/css" href="{% static 'app/main.css' %}" />
+<script src="/static/app/js/color.jquery.js"></script>
+<script src="/static/app/us-map/us-map.js"></script>
+</head>
+<script>
+$(document).ready(function() {
+  $('#map').usmap({
+    'stateSpecificStyles': {
+      {% for state, value in states.items %}
+      	'{{state}}' : {fill: '{{value.0}}'},
+      {% endfor %}
+    },
+    'stateSpecificHoverStyles': {
+      {% for state, value in states.items %}
+      	'{{state}}' : {fill: '{{value.1}}'},
+      {% endfor %}
+    },
+    
+    'mouseoverState': {
+      'HI' : function(event, data) {
+        //return false;
+      }
+    },
+    
+    
+    'click' : function(event, data) {
+   	  console.log($('#' + data.name).val());
+      $('#alert').html('<p>' + $('#' + data.name).val() + '</p>');
+      $('#alert').css('backgroundColor', '#92BDE8')
+      $('#alert').animate({backgroundColor: '#FFFFFF'}, 1000);
+      chart.draw(data, options);
+    }
+  });
+      $('#alert').width($('#map').width());
+
+});
+</script>
+</head>
+<body>
+  {% for state, val in breakdowns.items %}
+  	<input type="hidden" id="{{state}}" name="{{state}}var" value="{{val}}">
+  {% endfor %}
+  <div id="map" style="width: 930px; height: 630px;"></div>
+  <div id="alert">State Breakdown:</div>
+</body>

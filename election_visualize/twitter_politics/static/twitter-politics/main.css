@@ -1,0 +1,11 @@
+#alert {
+	    font-family: Arial, Helvetica, sans-serif;
+	    font-size: 16px;
+	    padding: 5px;
+	    font-weight: bold; }
+#map {
+	margin-left: auto;
+	margin-right: auto;
+	left : 50%;
+	position : relative;
+}

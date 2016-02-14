@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<meta name="robots" content="index, follow" />
+		<meta name="revisit-after" content="14 days" />
+			
+		<title>thePoliticsProject</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
+		<link href="{% static 'twitter-politics/css/bootstrap.min.css' %}" rel="stylesheet" />
+		<link href="{% static 'twitter-politics/style.css' %}" rel="stylesheet" />
+		
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		
+		<!--[if lt IE 9]>
+			<script src="/view/js/html5shiv.js"></script>
+			<script src="/view/js/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- Begin Inspectlet Embed Code -->
+		<script type="text/javascript" id="inspectletjs">
+			window.__insp = window.__insp || [];
+			__insp.push(['wid', 92785244]);
+			(function() {
+				function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://www.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
+				if (window.attachEvent){
+					window.attachEvent('onload', __ldinsp);
+				}else{
+					window.addEventListener('load', __ldinsp, false);
+				}
+			})();
+		</script>
+		<!-- End Inspectlet Embed Code -->
+	</head>
+	<head>
+<title>Index</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<script src="{% static 'twitter-politics/us-map/lib/raphael.js' %}"> </script>
+<link rel="stylesheet" type="text/css" href="{% static 'twitter-politics/main.css' %}" />
+<script src="{% static 'twitter-politics/js/color.jquery.js' %}"></script>
+<script src="{% static 'twitter-politics/us-map/us-map.js' %}"></script>
+</head>
+<script>
+$(document).ready(function() {
+  $('#map').usmap({
+    'stateSpecificStyles': {
+      {% for state, value in states.items %}
+      	'{{state}}' : {fill: '{{value.0}}'},
+      {% endfor %}
+    },
+    'stateSpecificHoverStyles': {
+      {% for state, value in states.items %}
+      	'{{state}}' : {fill: '{{value.1}}'},
+      {% endfor %}
+    },
+    
+    'mouseoverState': {
+      'HI' : function(event, data) {
+        //return false;
+      }
+    },
+    
+    
+    'click' : function(event, data) {
+   	  console.log($('#' + data.name).val());
+      $('#alert').html('<p>' + $('#' + data.name).val() + '</p>');
+      $('#alert').css('backgroundColor', '#92BDE8')
+      $('#alert').animate({backgroundColor: '#FFFFFF'}, 1000);
+    }
+  });
+      $('#alert').width($('#map').width());
+
+});
+</script>
+<body>
+	<body data-spy="scroll" data-target="#navbar-example">	 
+		<div id="top" class="jumbotron" data-src="/view/images/highway_animation.gif" data-position="center right">
+			<div class="container">
+				<h1>thePoliticsProject</h1>
+				<p class="lead">A Graphical Representation</p>
+			</div>
+		</div>
+<hr />
+
+<div class="row">
+	<div class="col-md-4">
+  {% for state, val in breakdowns.items %}
+  	<input type="hidden" id="{{state}}" name="{{state}}var" value="{{val}}">
+  {% endfor %}
+  <center><div id="map" style="width: 930px; height: 630px;"></div></center>
+  <div id="alert">State Breakdown:</div>
+	</div>
+</div>			</div>	
+		</div>	
+		
+	</body>
+</html>

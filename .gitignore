@@ -1,0 +1,7 @@
+__pycache__/
+.DS_Store
+election_visualize/twitter_politics/logic/tweets/
+election_visualize/twitter_politics/logic/training-data/
+election_visualize/twitter_politics/logic/old/
+election_visualize/db.sqlite3
+election_visualize/twitter_politics/logic/classifier_cache.pickle
