@@ -14,4 +14,4 @@ Django
 
 The live interface looks like the following:
 
-![Election Tracker Preview](http://ankitmathur.me/assets/mypic.jpg)
+![Election Tracker Preview](http://ankitmathur.me/assets/election_tracker.png)
