@@ -8,9 +8,13 @@ For the algorithmic backend logic, go to election_visualize/twitter_politics/log
 ### Streaming Tweets
 ### Live Updating
 ## External Technologies Used
+
 D3.js/C3.js
+
 Pubnub
+
 Tweepy
+
 Django
 
 The live interface looks like the following:
