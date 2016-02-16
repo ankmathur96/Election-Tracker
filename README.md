@@ -3,7 +3,7 @@
 This project uses NLP to analyze tweets about election candidates and displays in a live-updating graph how those candidates are performing. It will be live on an actual website in the coming days.
 
 ## Technical Aspects
-For the algorithmic backend logic, go to election_visualize/twitter_politics/logic/
+For the Python-backed algorithmic backend logic, go to election_visualize/twitter_politics/logic/
 ### NLP
 ### Streaming Tweets
 ### Live Updating
