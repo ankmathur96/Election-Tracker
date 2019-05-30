@@ -57,4 +57,4 @@ state_dict = {
         'WV': 'West Virginia',
         'WY': 'Wyoming'
 }
-candidate_list = ['trump', 'clinton', 'sanders', 'carson', 'rubio', 'cruz', 'bush']
+candidate_list = ['clinton', 'sanders', 'trump', 'carson', 'rubio', 'cruz', 'kasich']

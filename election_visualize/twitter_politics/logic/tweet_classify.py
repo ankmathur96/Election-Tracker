@@ -1,4 +1,4 @@
-import json, sys, os, nltk.data, traceback, pickle
+import json, sys, os, traceback, pickle
 import sentiment
 from twitter_secrets import google_geo_key
 POS_WEIGHT = 1
@@ -6,14 +6,15 @@ NEG_WEIGHT = 1
 import requests
 from collections import defaultdict
 
-try:
-	sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-except Exception:
-	traceback.print_exc()
-	print('------------------------------------------')
-	print('continuing execution anyway.')
-	sent_tokenizer = None
-
+# import nltk.data
+# try:
+# 	sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+# except Exception:
+# 	traceback.print_exc()
+# 	print('------------------------------------------')
+# 	print('continuing execution anyway.')
+# 	sent_tokenizer = None
+sent_tokenizer = None
 # def classify_tweets_ml(tweet_file, classifier=None):
 # 	with open(tweet_file, 'rb') as i:
 # 		raw_tweets = pickle.load(i)
