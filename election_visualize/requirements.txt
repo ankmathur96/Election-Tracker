@@ -122,7 +122,7 @@ tornado==4.3
 traitlets==4.1.0
 ujson==1.33
 unicodecsv==0.14.1
-Werkzeug==0.11.2
+Werkzeug==0.15.3
 wheel==0.26.0
 xlrd==0.9.4
 XlsxWriter==0.7.7
